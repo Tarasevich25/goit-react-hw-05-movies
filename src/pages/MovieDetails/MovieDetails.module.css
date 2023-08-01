@@ -1,0 +1,32 @@
+.section {
+  padding: 10px;
+}
+.movieCard {
+  display: flex;
+  outline: gray;
+}
+.cardListItem {
+  list-style-type: none;
+}
+.linkGoBack {
+  margin-bottom: 30px;
+
+  &:hover {
+    color: rgb(80, 109, 235);
+    text-decoration: underline;
+  }
+}
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  &:hover {
+    color: rgb(80, 109, 235);
+    text-decoration: underline;
+  }
+}
+.imgMain {
+  height: 100%;
+  width: 200px;
+  margin-top: 10px;
+}
