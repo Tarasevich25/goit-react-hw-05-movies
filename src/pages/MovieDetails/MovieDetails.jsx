@@ -10,7 +10,7 @@ export const MoviesDetails = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { moviesId } = useParams();
-  const location = useLocation;
+  const location = useLocation();
   const backLink = location?.state?.from ?? '/';
 
   useEffect(() => {

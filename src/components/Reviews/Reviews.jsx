@@ -6,7 +6,7 @@ import { fetchMovieReviews } from 'services/api';
 export const Reviews = () => {
   const { moviesId } = useParams();
   const [movieData, setMovieData] = useState([]);
-  const [, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!moviesId) return;
@@ -25,25 +25,35 @@ export const Reviews = () => {
     fetchMovie();
   }, [moviesId]);
  
-  if (!movieData) {
-    return;
-  }
-  return movieData.length > 0 ? (
-    <section>
-      <div>
-        <ul>
-          {movieData?.map(review => (
-            <li key={review.id}>
-              <div>{`Author
-: ${review.author}`}</div>
-              <br />
-              <div>{`${review.content}`}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  ) : (
-    <h4>There is not any reviews for now</h4>
+  return (
+    <>
+      {isLoading ? (
+       <p>Loading ...</p>
+        ) : (
+         <>
+          {movieData.length > 0 ? (
+           <section>
+            <div>
+             <ul>
+              {movieData?.map(review => (
+                <li key={review.id}>
+                  <div>{`Author
+                   : ${review.author}`}
+                  </div>
+                   <br/>
+                  <div>{`${review.content}`}</div>
+                </li>
+               ))}
+             </ul>
+           </div>
+          </section>
+        ) : (
+         <h4>There is not any reviews for now</h4>
+            )
+          }
+        </>
+        )
+      }
+    </>
   );
 };
